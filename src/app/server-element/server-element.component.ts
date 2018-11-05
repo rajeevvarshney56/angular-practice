@@ -10,7 +10,10 @@ import {
     AfterContentChecked,
     AfterViewInit,
     AfterViewChecked,
-    OnDestroy
+    OnDestroy,
+    ViewChild,
+    ElementRef,
+    ContentChild
 } from "@angular/core";
 
 @Component({
@@ -30,10 +33,14 @@ export class ServerElementComponent implements
     OnDestroy {
     @Input('srvElement') element: { type: string, serverName: string, serverContent: string };
     @Input() serverName : string;
+    @ViewChild('heading') header:ElementRef;
+    @ContentChild('contentParagraph') paragraph:ElementRef;
 
 
     ngOnInit() {
         console.log('ngInit called!');
+        console.log('Text Content'+this.header.nativeElement.textContent);
+        console.log('Content Paragraph :'+ this.paragraph.nativeElement.textContent);
     }
 
     ngOnChanges(changes:SimpleChanges){
@@ -47,6 +54,7 @@ export class ServerElementComponent implements
 
     ngAfterContentInit(){
         console.log('ngAfterContentInit called!');
+        console.log('Content Paragraph :'+ this.paragraph.nativeElement.textContent);
     }
 
     ngAfterContentChecked(){
@@ -55,6 +63,7 @@ export class ServerElementComponent implements
 
     ngAfterViewInit(){
         console.log('ngAfterViewInit called!');
+        console.log('Text Content : '+this.header.nativeElement.textContent);
     }
 
     ngAfterViewChecked(){

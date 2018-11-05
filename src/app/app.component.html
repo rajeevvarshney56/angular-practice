@@ -11,7 +11,7 @@
         </div>
     </div>
 </div> -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <app-cockpit 
             (serverCreated)="onServerAdded($event)"
@@ -26,11 +26,29 @@
                 *ngFor="let serverElement of serverElements"
                 [srvElement]="serverElement"
                 [serverName]="serverElement.serverName">
-                    <p>
+                    <p #contentParagraph>
                             <em *ngIf="serverElement.type=='blueprint'" >{{serverElement.serverContent}}</em>
                             <strong *ngIf="serverElement.type=='server'" [ngStyle]="{'color':'red'}">{{serverElement.serverContent}}</strong>
                         </p>
             </app-server-element>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <hr>
+        <div class="col-xs-12">
+            <app-game-control (intervalFired)="OnIntervalFired($event)"></app-game-control>
+
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        <div class="col-xs-12">
+            <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber">{{oddNumber}}</app-odd>
+        </div>
+        <div class="col-xs-12">
+            <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber">{{oddNumber}}</app-even>
         </div>
     </div>
 </div>
