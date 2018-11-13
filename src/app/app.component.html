@@ -52,7 +52,7 @@
         </div>
     </div>
 </div> -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <hr>
         <div class="col-xs-12">
@@ -65,6 +65,43 @@
         </div>
         <div class="col-xs-12">
                 <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber">{{evenNumber}}</app-even>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+            <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only Odd Number Show</button>
+            <hr/>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="list-group">
+                    <div *ngIf="!onlyOdd">
+                        <li 
+                            class="list-group-item" 
+                            [ngClass]="{even:even%2 === 0}"
+                            [ngStyle]="{background:even%2 === 0 ? 'yellow':'transaparent'}"
+                            *ngFor="let even of evenValues"
+                        >
+                            {{even}}
+                        </li>
+                    </div>
+                    <div *ngIf="onlyOdd">
+                        <li 
+                            class="list-group-item"
+                            [ngClass]="{odd:odd%2 !== 0}"
+                            [ngStyle]="{background:odd%2 !== 0 ? 'gray':'aqua'}"
+                            *ngFor="let odd of oddValues"
+                        >
+                            {{odd}}
+                        </li>
+                    </div>
+                </ul>
+                <p appBasicHighlight>Simple Basic directive</p>
+            </div>
         </div>
     </div>
 </div>
