@@ -41,4 +41,10 @@ export class AppComponent {
       this.oddNumbers.push(firedNumber);
     }
   }
+
+
+  listValues = [1,2,3,4,5];
+  oddValues = [1,3,5];
+  evenValues = [2,4];
+  onlyOdd = false;
 }

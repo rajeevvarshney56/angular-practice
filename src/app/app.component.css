@@ -5,3 +5,11 @@ h3{
 p{
     color: palevioletred;
 }
+
+.odd {
+    color:red;
+}
+
+.even{
+    color:green;
+}
